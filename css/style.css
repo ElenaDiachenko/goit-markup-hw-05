@@ -115,7 +115,20 @@ address {
 .logo span {
   color: var(--primary-accent-color);
 }
-
+.active-page {
+  position: relative;
+}
+.active-page::after {
+  position: absolute;
+  left: 0;
+  top: calc(100% - 1px);
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-accent-color);
+  border-radius: 2px;
+}
 /* Стили страницы Студия*/
 
 /* Site-nav*/
@@ -136,6 +149,8 @@ address {
   color: var(--secondary-text-color);
   font-weight: 500;
   line-height: 1.14;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav-list .link:hover,
 .site-nav-list .link:focus,
@@ -270,6 +285,23 @@ address {
 .activities-box .item {
   flex-basis: calc(100% / 3 - var(--margin));
 }
+.activities-thumb {
+  position: relative;
+}
+.activities-description {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.17;
+  color: var(--secondary-accent-color);
+  text-transform: uppercase;
+  background-color: rgba(47, 48, 58, 0.8);
+}
 /*TEAM*/
 
 .section.team {
@@ -318,6 +350,9 @@ address {
   width: 44px;
   height: 44px;
   color: var(--icon-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -328,6 +363,8 @@ address {
   width: 20px;
   height: 20px;
   fill: currentColor;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover .social-icon,
 .social-link:focus .social-icon {
@@ -350,6 +387,8 @@ address {
   border: 1px solid rgba(175, 177, 184, 1);
   border-radius: 4px;
   color: var(--icon-color);
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-icon {
   width: 106px;
@@ -364,6 +403,8 @@ address {
 .client-link:hover .client-icon,
 .client-link:focus .client-icon {
   fill: currentColor;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*FOOTER*/
@@ -374,6 +415,8 @@ address {
 }
 .footer-color {
   color: var(--secondary-accent-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address {
@@ -428,6 +471,9 @@ address {
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-list .button:hover,
 .filter-list .button:focus {
@@ -440,6 +486,8 @@ address {
 }
 .examples-set .link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .examples-set .link:hover,
 .examples-set .link:focus {
@@ -461,4 +509,84 @@ address {
   color: var(--primary-text-color);
   font-size: 16px;
   line-height: 1.88;
+}
+.examples-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.examples-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.examples-set .link:hover .examples-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+.examples-text {
+  font-size: 18px;
+  line-height: 1.56;
+  overflow: hidden;
+  color: var(--secondary-accent-color);
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: inherit;
+  cursor: pointer;
+}
+.modal-icon {
+  width: 11px;
+  height: 11px;
 }

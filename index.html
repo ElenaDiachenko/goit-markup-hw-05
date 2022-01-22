@@ -16,7 +16,7 @@
             <nav class="site-nav">
                 <a href="./index.html" lang="en" class="logo link"><span>Web</span>Studio</a>
                 <ul class=" site-nav-list list">
-                    <li class="item"><a href="./index.html" class="link ">Студия</a></li>
+                    <li class="item "><a href="./index.html" class="link active-page">Студия</a></li>
                     <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
                     <li class="item"><a href="" class="link">Контакты</a></li>
                 </ul>
@@ -39,7 +39,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button type="button" class="button">Заказать услугу</button>
+                <button type="button" class="button" data-modal-open>Заказать услугу</button>
             </div>
         </section>
         <section class=" section benefits">
@@ -90,13 +90,22 @@
                 <h2 class="section-title">Чем мы занимаемся</h2>
                 <ul class=" activities-box box list">
                     <li class="item">
-                        <img src="./images/work-img-1.jpg" alt="Рабочий стол програмиста" width="370">
+                        <div class="activities-thumb">
+                            <img src="./images/work-img-1.jpg" alt="Рабочий стол програмиста" width="370">
+                            <p class="activities-description">декстопные приложения</p>
+                        </div>
                     </li>
                     <li class="item">
-                        <img src="./images/work-img-2.jpg" alt="Адаптивная верстка" width="370">
+                        <div class="activities-thumb">
+                            <img src="./images/work-img-2.jpg" alt="Адаптивная верстка" width="370">
+                            <p class="activities-description">мобильные приложения</p>
+                        </div>
                     </li>
                     <li class="item">
-                        <img src="./images/work-img-3.jpg" alt="Планшет веб-дизайнера" width="370">
+                        <div class="activities-thumb">
+                            <img src="./images/work-img-3.jpg" alt="Планшет веб-дизайнера" width="370">
+                            <p class="activities-description">дизайнерские решения</p>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -359,5 +368,18 @@
             </div>
         </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button  class="modal-close button" data-modal-close>
+                <svg class="modal-icon">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
+
 </body>
 </html>
